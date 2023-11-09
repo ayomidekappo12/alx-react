@@ -35,6 +35,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/code-frame": "^7.22.13",
     "react-scripts": "^5.0.1"
   }
 }
