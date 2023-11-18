@@ -5,8 +5,7 @@ import Notifications from "./Notifications";
 
 {
   const rootNotifications = ReactDOM.createRoot(
-    document,
-    getElementById("root-notifications")
+    document.getElementById("root-notifications")
   );
   rootNotifications.render(
     <React.StrictMode>
