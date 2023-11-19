@@ -4,7 +4,6 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
   },
   mode: "development",
   module: {
@@ -47,7 +46,7 @@ module.exports = {
   devtool: "inline-source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      name: "index.html",
+      filename: "index.html",
       inject: false,
       template: "./dist/index.html",
     }),
