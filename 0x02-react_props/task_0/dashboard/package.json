@@ -30,6 +30,7 @@
   "dependencies": {
     "@babel/runtime": "^7.23.4",
     "@zarconontol/enzyme-adapter-react-18": "^0.7.3",
-    "inline-source-map": "^0.6.2"
+    "inline-source-map": "^0.6.2",
+    "web-vitals": "^3.5.0"
   }
 }
