@@ -1,23 +1,20 @@
+import React from "react";
+import Notifications from "../Notifications/Notifications";
+import Header from "../Header/Header";
+import Login from "../Login/Login";
+import Footer from "../Footer/Footer";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Notifications />
+      <div className="App">
+        <Header />
+        <Login />
+        <Footer />
+      </div>
+    </React.Fragment>
   );
 }
 
