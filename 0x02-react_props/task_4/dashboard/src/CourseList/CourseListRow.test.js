@@ -23,4 +23,18 @@ describe("course List Row component test", () => {
       '<th colSpan="2">test</th>'
     );
   });
+
+  it("should render two cells when textSecondCell not null", () => {
+    const wrapper = shallow(
+      <CourseListRow
+        isHeader={false}
+        textFirstCell="test"
+        textSecondCell="test"
+      />
+    );
+
+    expect(wrapper.find("tr").children()).toHaveLength(2);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual("<td>test</td>");
+    expect(wrapper.find("tr").childAt(1).html()).toEqual("<td>test</td>");
+  });
 });
