@@ -70,4 +70,50 @@ describe("Notification tests", () => {
 
     expect(wrapper.find("div.Notifications").exists()).toBe(true);
   });
+
+  it("renders correctly when listCourses is not passed", () => {
+    const wrapper = shallow(<Notifications displayDrawer={true} />);
+
+    expect(
+      wrapper.containsMatchingElement(
+        <li data-notification-type="default">No new notification for now</li>
+      )
+    );
+  });
+
+  it("renders correctly when empty array is passed", () => {
+    const wrapper = shallow(
+      <Notifications displayDrawer={true} listNotifications={[]} />
+    );
+
+    expect(
+      wrapper.containsMatchingElement(
+        <li data-notification-type="default">No new notification for now</li>
+      )
+    );
+  });
+
+  // it("renders correctly when listNotifications is passed and with the right number of notifications", () => {
+  //   const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+
+  //   expect(wrapper.find("ul").children()).toHaveLength(3);
+  //   wrapper.find("ul").forEach((node) => {
+  //     expect(node.equals(<NotificationItem />));
+  //   });
+  // });
+
+  it('renders "No new notifications for now" instead of "Here is the list of notifications" when listNotifications is empty', () => {
+    const wrapper = shallow(
+      <Notifications displayDrawer={true} listNotifications={[]} />
+    );
+
+    expect(
+      wrapper.containsMatchingElement(<p>Here is the list of notifications</p>)
+    ).toBe(true);
+    expect(
+      wrapper.containsMatchingElement(
+        <li data-notification-type="default">No new notification for now</li>
+      )
+    );
+  });
 });
