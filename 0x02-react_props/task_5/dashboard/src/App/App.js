@@ -3,11 +3,10 @@ import Notifications from "../Notifications/Notifications";
 import Header from "../Header/Header";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
-import PropTypes from "prop-types";
 import CourseList from "../CourseList/CourseList";
-import { getLatestNotification } from "../utils/utils";
-
+import PropTypes from "prop-types";
 import "./App.css";
+import { getLatestNotification } from "../utils/utils";
 
 const listCourses = [
   { id: 1, name: "ES6", credit: 60 },
