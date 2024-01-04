@@ -29,10 +29,6 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "testEnvironmentOptions": {
-      "resources": "usable",
-      "runScripts": "dangerously"
-    },
     "setupFiles": [
       "<rootDir>/config/setupTests.js"
     ],
