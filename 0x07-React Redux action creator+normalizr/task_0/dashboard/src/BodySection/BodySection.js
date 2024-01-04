@@ -5,19 +5,13 @@ import { StyleSheet, css } from "aphrodite";
 class BodySection extends Component {
   render() {
     return (
-      <div className={`bodySection ${css(styles.BodySectionOverflow)}`}>
+      <div className="bodySection">
         <h2>{this.props.title}</h2>
         {this.props.children}
       </div>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  BodySectionOverflow: {
-    overflow: "auto",
-  },
-});
 
 BodySection.propTypes = {
   title: PropTypes.string.isRequired,
