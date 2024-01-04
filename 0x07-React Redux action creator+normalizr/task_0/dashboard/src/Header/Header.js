@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     borderBottom: "3px solid #e0354b",
+    width: "98vw",
   },
 
   img: {
