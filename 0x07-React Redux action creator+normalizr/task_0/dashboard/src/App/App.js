@@ -134,10 +134,11 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   App: {
-    height: "100vh",
+    Height: "100vh",
     maxWidth: "100vw",
     position: "relative",
     fontFamily: "Arial, Helvetica, sans-serif",
+    overflow: "hidden",
   },
 });
 
