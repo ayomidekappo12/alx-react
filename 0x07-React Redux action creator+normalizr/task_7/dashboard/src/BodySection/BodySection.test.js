@@ -1,5 +1,6 @@
 import React from "react";
 import BodySection from "./BodySection";
+import "@testing-library/jest-dom";
 import { shallow } from "enzyme";
 
 describe("BodySection tests", () => {

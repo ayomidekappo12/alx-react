@@ -1,6 +1,7 @@
 import { shallow } from "enzyme";
 import React from "react";
 import Login from "./Login";
+import "@testing-library/jest-dom";
 import { StyleSheetTestUtils } from "aphrodite";
 
 beforeEach(() => {

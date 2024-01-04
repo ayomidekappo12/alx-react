@@ -1,5 +1,6 @@
 import * as notifActionTypes from "./notificationActionTypes";
 import * as notifActionCreators from "./notificationActionCreators";
+import "@testing-library/jest-dom";
 
 describe("Testing notification Action Creators", () => {
   it("test markAsRead action", () => {

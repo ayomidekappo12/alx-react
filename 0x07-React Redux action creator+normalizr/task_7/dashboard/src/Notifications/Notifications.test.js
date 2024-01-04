@@ -1,5 +1,6 @@
 import React from "react";
 import { jest } from "@jest/globals";
+import "@testing-library/jest-dom";
 import { shallow, mount } from "enzyme";
 import Notifications from "./Notifications";
 import { getLatestNotification } from "../utils/utils";

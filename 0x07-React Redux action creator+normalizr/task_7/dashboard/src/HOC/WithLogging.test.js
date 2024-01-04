@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import WithLogging from "./WithLogging";
+import "@testing-library/jest-dom";
 
 const TestComponent = () => <p>Test Component</p>;
 

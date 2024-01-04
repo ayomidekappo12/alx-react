@@ -1,6 +1,7 @@
 import React from "react";
 import CourseListRow from "./CourseListRow";
 import { shallow } from "enzyme";
+import "@testing-library/jest-dom";
 import { StyleSheetTestUtils } from "aphrodite";
 
 beforeEach(() => {

@@ -6,6 +6,7 @@ import React from "react";
 import Footer from "./Footer";
 import { getFullYear, getFooterCopy } from "../utils/utils";
 import { AppContext } from "../App/AppContext";
+import "@testing-library/jest-dom";
 
 describe("Footer test", () => {
   it("should render without crashing", () => {

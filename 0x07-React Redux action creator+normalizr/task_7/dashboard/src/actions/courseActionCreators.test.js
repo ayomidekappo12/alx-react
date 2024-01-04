@@ -1,5 +1,6 @@
 import { selectCourse, unSelectCourse } from "./courseActionCreators";
 import { SELECT_COURSE, UNSELECT_COURSE } from "./courseActionTypes";
+import "@testing-library/jest-dom";
 
 describe("tests for action creators", () => {
   it("should return right action payload and type when selectCourse is called", () => {

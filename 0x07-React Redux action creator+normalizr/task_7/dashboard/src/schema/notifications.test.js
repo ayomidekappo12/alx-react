@@ -1,4 +1,5 @@
 import getAllNotificationsByUser, { normalized } from "./notifications";
+import "@testing-library/jest-dom";
 
 describe("Test for Notifications.js", () => {
   it("verify that the function returns the correct data", () => {
