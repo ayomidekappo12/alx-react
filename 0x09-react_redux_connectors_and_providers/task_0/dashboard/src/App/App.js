@@ -10,8 +10,7 @@ import Footer from "../Footer/Footer";
 import PropTypes from "prop-types";
 import { getLatestNotification } from "../utils/utils";
 import { StyleSheet, css } from "aphrodite";
-import { user, logOut } from "./AppContext";
-import AppContext from "./AppContext";
+import { user, logOut, AppContext } from "./AppContext";
 
 const listCourses = [
   { id: 1, name: "ES6", credit: 60 },
