@@ -43,7 +43,7 @@ module.exports = {
     static: "./dist",
     compress: true,
     open: true,
-    contentBase: path.resolve("./dist"),
+    static: path.resolve(__dirname, "dist"),
     hot: true,
     port: 8564,
   },
