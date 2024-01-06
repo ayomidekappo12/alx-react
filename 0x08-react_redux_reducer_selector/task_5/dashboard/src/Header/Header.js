@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     color: "#e0354b",
     display: "flex",
     alignItems: "center",
-    borderBottom: "3px solid #e0354b",
     width: "98vw",
   },
 
