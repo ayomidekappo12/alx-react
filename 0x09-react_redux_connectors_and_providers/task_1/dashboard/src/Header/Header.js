@@ -1,7 +1,8 @@
+// Header.js
 import React, { useContext } from "react";
 import logo from "../assets/holberton-logo.jpg";
 import { StyleSheet, css } from "aphrodite";
-import AppContext from "../App/AppContext";
+import { AppContext } from "../App/AppContext"; // Fix: Import AppContext as named export
 
 function Header() {
   const { user, logOut } = useContext(AppContext);
