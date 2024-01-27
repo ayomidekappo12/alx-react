@@ -1,19 +1,15 @@
 import React from "react";
-import { shallow } from "enzyme";
 import Header from "./Header";
+import { shallow } from "enzyme";
 
-describe("Header component", () => {
-  it("renders without crashing", () => {
-    shallow(<Header />);
-  });
-
-  it("renders an img tag", () => {
+describe("Header", () => {
+  it("render without crashing", () => {
     const wrapper = shallow(<Header />);
-    expect(wrapper.find("img")).toHaveLength(1);
+    expect(wrapper.exists()).toEqual(true);
   });
-
-  it("renders an h1 tag", () => {
+  it("should render a h1", () => {
     const wrapper = shallow(<Header />);
-    expect(wrapper.find("h1")).toHaveLength(1);
+    expect(wrapper.exists("img")).toEqual(true);
+    expect(wrapper.containsMatchingElement(<h1>School dashboard</h1>)).toEqual(true);
   });
 });

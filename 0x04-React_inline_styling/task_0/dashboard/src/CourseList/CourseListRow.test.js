@@ -1,38 +1,26 @@
 import React from "react";
-import { shallow } from "enzyme";
 import CourseListRow from "./CourseListRow";
-import PropTypes from "prop-types";
+import { shallow } from "enzyme";
 
-describe("CourseListRow", () => {
-  describe("when isHeader is true", () => {
-    it("should render two cells when textSecondCell is present", () => {
-      const wrapper = shallow(
-        <CourseListRow
-          isHeader={true}
-          textFirstCell="First Cell"
-          textSecondCell="Second Cell"
-        />
-      );
-      expect(wrapper.find("tr").length).toBe(1);
-      expect(wrapper.find("th").length).toBe(2);
-      expect(wrapper.find("th").at(0).text()).toBe("First Cell");
-      expect(wrapper.find("th").at(1).text()).toBe("Second Cell");
-    });
+describe("Course List Row component test", () => {
+  it("should render without crashing", () => {
+    const wrapper = shallow(<CourseListRow textFirstCell="test" />);
+
+    expect(wrapper.exists()).toBe(true);
   });
 
-  describe("when isHeader is false", () => {
-    it("should render correctly two td elements within a tr element", () => {
-      const wrapper = shallow(
-        <CourseListRow
-          isHeader={false}
-          textFirstCell="First Cell"
-          textSecondCell="Second Cell"
-        />
-      );
-      expect(wrapper.find("tr").length).toBe(1);
-      expect(wrapper.find("td").length).toBe(2);
-      expect(wrapper.find("td").at(0).text()).toBe("First Cell");
-      expect(wrapper.find("td").at(1).text()).toBe("Second Cell");
-    });
+  it("should render one cell with colspan = 2 when textSecondCell null", () => {
+    const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="test" textSecondCell={null} />);
+
+    expect(wrapper.find("tr").children()).toHaveLength(1);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual('<th style="background-color:#deb5b545" colSpan="2">test</th>');
+  });
+
+  it("should render two cells when textSecondCell not null", () => {
+    const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell="test" textSecondCell="test" />);
+
+    expect(wrapper.find("tr").children()).toHaveLength(2);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual("<td>test</td>");
+    expect(wrapper.find("tr").childAt(1).html()).toEqual("<td>test</td>");
   });
 });

@@ -1,6 +1,6 @@
-import WithLogging from "./WithLogging";
 import React from "react";
 import { shallow } from "enzyme";
+import WithLogging from "./WithLogging";
 
 const TestComponent = () => <p>Test Component</p>;
 
@@ -20,11 +20,12 @@ describe("WithLogging tests", () => {
     const spy = jest.spyOn(console, "log").mockImplementation();
     const NewComponent = WithLogging(TestComponent);
     const wrapper = shallow(<NewComponent />);
-    expect(spy).toBeCalledWith("Component TestComponent is mounted");
+
     expect(spy).toBeCalledTimes(1);
+    expect(spy).toBeCalledWith("Component TestComponent is mounted");
     wrapper.unmount();
-    expect(spy).toBeCalledWith("Component Test is going to unmount");
     expect(spy).toHaveBeenCalledTimes(2);
+    expect(spy).toBeCalledWith("Component TestComponent is going to unmount");
     spy.mockRestore();
   });
 });
