@@ -1,39 +1,48 @@
-import { createSelector } from "reselect";
+import {
+  selectCourse,
+  unSelectCourse,
+  setCourses,
+  fetchCourses,
+} from "./courseActionCreators";
 
-export const filterTypeSelected = (state) => {
-  return state.get("filter");
-};
-export const getNotifications = (state) => {
-  return state.get("notifications");
-};
+import {
+  SELECT_COURSE,
+  UNSELECT_COURSE,
+  FETCH_COURSE_SUCCESS,
+} from "./courseActionTypes";
 
-const getNotificationsSelector = (state) => state.notifications;
+import fetchMock from "fetch-mock";
 
-export const getUnreadNotificationsByType = createSelector(
-  getNotificationsSelector,
-  (notifications) => {
-    const messages = notifications.get("messages");
-    const filter = notifications.get("filter");
+import configureStore from "redux-mock-store";
+import thunk from "redux-thunk";
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
 
-    if (messages) {
-      let filtered;
+describe("action creators tests", function () {
+  it("selectCourse should return: { type: SELECT_COURSE, index: 1 }", function () {
+    const result = selectCourse(1);
 
-      if (filter === "URGENT") {
-        filtered = messages
-          .valueSeq()
-          .filter(
-            (value) =>
-              value.get("isRead") === false && value.get("type") === "urgent"
-          );
-      } else {
-        filtered = messages
-          .valueSeq()
-          .filter((value) => value.get("isRead") === false);
-      }
+    expect(result).toEqual({ type: SELECT_COURSE, index: 1 });
+  });
+  it("unSelectCourse should return: { type: UNSELECT_COURSE, index: 1 }", function () {
+    const result = unSelectCourse(1);
 
-      return filtered;
-    }
+    expect(result).toEqual({ type: UNSELECT_COURSE, index: 1 });
+  });
+  it("unSelectCourse should return: { type: UNSELECT_COURSE, index: 1 }", function () {
+    const result = unSelectCourse(1);
 
-    return messages;
-  }
-);
+    expect(result).toEqual({ type: UNSELECT_COURSE, index: 1 });
+  });
+  it("verify that the fetch is working correctly", function () {
+    const store = mockStore({});
+    fetchMock.restore();
+
+    fetchMock.get("./courses.json", "{}");
+
+    return store.dispatch(fetchCourses()).then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toEqual(setCourses({}));
+    });
+  });
+});

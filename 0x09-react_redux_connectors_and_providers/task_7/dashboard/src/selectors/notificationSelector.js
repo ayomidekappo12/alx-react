@@ -1,14 +1,19 @@
-export const filterTypeSelected = (data) => {
-  return data.get("filter");
+export const filterTypeSelected = (state) => {
+  return state.get("filter");
 };
-
-export const getNotifications = (data) => {
-  return data.get("notification");
+export const getNotifications = (state) => {
+  return state.get("notifications");
 };
+export const getUnreadNotifications = (state) => {
+  const notifications = state.notifications.get("messages");
 
-export const getUnreadNotifications = (data) => {
-  const notification = Object.values(getNotifications(data).toJS());
-  return notification.filter((not) => {
-    not.isRead;
-  });
+  if (notifications) {
+    const filtered = notifications
+      .valueSeq()
+      .filter((value) => value.get("isRead") === false);
+
+    return filtered;
+  }
+
+  return notifications;
 };
